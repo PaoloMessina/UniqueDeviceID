@@ -24,7 +24,8 @@
             
         }  else if ( !uuid && !uuidUserDefaults ) {
             NSString *uuidString = [[NSUUID UUID] UUIDString];
-            
+            uuidString = [NSString stringWithFormat:@"%@:%@", @"NSUUID", uuidString];
+			
             [UICKeyChainStore setString:uuidString forKey:@"uuid"];
             
             [defaults setObject:uuidString forKey:@"uuid"];

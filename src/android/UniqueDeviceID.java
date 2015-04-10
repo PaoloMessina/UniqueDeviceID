@@ -26,7 +26,13 @@ public class UniqueDeviceID extends CordovaPlugin {
             
             if ("9774d56d682e549c".equals(androidID) || androidID == null) {
                 androidID = "";
-            } 
+            } else {
+                final String hashed = Hashing.sha256()
+                        .hashString(androidID, Charsets.UTF_8)
+                        .toString();
+				callbackContext.success("hash_android_id:" + hashed);
+				return true;
+			}
             
             if (deviceID == null) {
                 deviceID = "";
@@ -41,7 +47,7 @@ public class UniqueDeviceID extends CordovaPlugin {
             uuid = uuid.substring(0,32);
     		uuid = uuid.replaceAll("(\\w{8})(\\w{4})(\\w{4})(\\w{4})(\\w{12})", "$1-$2-$3-$4-$5");
             
-            callbackContext.success(uuid);
+            callbackContext.success("aid_dev_sim:" + uuid);
             return true;
         }
 
