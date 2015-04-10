@@ -9,6 +9,9 @@ import android.content.Context;
 import android.provider.Settings.Secure;
 import android.telephony.TelephonyManager;
 
+import com.google.common.base.Charsets;
+import com.google.common.hash.Hashing;
+
 public class UniqueDeviceID extends CordovaPlugin {
 
     @Override
