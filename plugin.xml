@@ -30,6 +30,9 @@
         </config-file>
 
         <source-file src="src/android/UniqueDeviceID.java" target-dir="src/hu/dpal/phonegap/plugins" />
+        
+        <!-- Import to include guava dependency -->
+        <framework src="src/android/build-extras.gradle" custom="true" type="gradleReference" />
 
     </platform>
 
